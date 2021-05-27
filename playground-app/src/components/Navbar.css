@@ -1,0 +1,44 @@
+.pinning-header-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: #f5df4d;
+}
+
+.nav-brand{
+    padding: 0 10px;
+    font-size: 30px;
+    font-weight: 600;   
+}
+
+.nav-button{
+    display: flex;
+    margin-left: auto;
+}
+
+.nav-button button{
+    min-width: 100px;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 15px;
+    outline: none;
+}
+
+.host-item{
+    background: #f5df4d;
+    border-color: #000;
+    margin-right: 20px;
+}
+
+.login-item{
+    background: #fff;
+    border: none;
+}
