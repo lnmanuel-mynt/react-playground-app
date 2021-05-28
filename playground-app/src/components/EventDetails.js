@@ -1,9 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { useParams } from 'react-router';
-import { AuthContext } from '../auth';
-import { firestore } from '../firebase';
-import loading from '../loading.gif'
-import './EventDetails.css'
+import { useState, useContext, useEffect } from 'react'
+import { useParams } from 'react-router'
+import { AuthContext } from '../firebase/auth'
+import { firestore } from '../firebase/firebase'
+import loading from '../assets/loading.gif'
+import EventDetailCard from './EventDetailCard'
+import '../styles/EventDetails.css'
 
 const EventDetails = () => {
     const { category, id } = useParams()
@@ -18,11 +19,14 @@ const EventDetails = () => {
                     if (doc.exists) {
                         console.log("Document data: ", doc.data())
                         setEventDetails(doc.data())
+                        return
                     } else {
                         console.log("No such document!")
+                        return
                     }
                 }).catch((error) => {
                     console.log("Error getting document:", error)
+                    return
                 })
             setIsFetching(false)
         }
@@ -40,34 +44,17 @@ const EventDetails = () => {
     }
 
     return (
-        <>
-            <div className="event-container">
-                {isFetching ? <img src={loading} alt="loading" /> : (
-                    <div className="detail-container">
-                        <div className="banner-container">
-                            <div className="poster-container">
-                                <img src={eventDetails.poster} alt='event' />
-                            </div>
-                            <div className="banner-text-container">
-                                <div className="banner-text">
-                                    <div>
-                                        <div>{new Date(eventDetails.date.seconds * 1000).toLocaleDateString("en-US")}</div>
-                                        <h2>{eventDetails.title}</h2>
-                                        <div>{eventDetails.host}</div>
-                                    </div>
-                                </div>
-                                <button className="btn-register" onClick={register}>Register</button>
-                            </div>
-                        </div>
-                        <div className="detail-text-container">
-                            <div>
-                                {eventDetails.details}
-                            </div>
-                        </div>
-                    </div>
-                )}
-            </div>
-        </>
+        <div className="event-container">
+            {isFetching ? <img src={loading} alt="loading" /> : (
+                <EventDetailCard
+                    eventPoster={eventDetails.poster}
+                    eventDate={new Date(eventDetails.date.seconds * 1000).toLocaleDateString("en-US")}
+                    eventTitle={eventDetails.title}
+                    eventHost={eventDetails.host}
+                    eventDetails={eventDetails.details}
+                    onRegisterClick={register} />
+            )}
+        </div>
     )
 }
 
