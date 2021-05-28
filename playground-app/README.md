@@ -5,19 +5,19 @@ Playground is a tech-event management website that allows users to browse local 
 ## Features
 
 Currently, Playground has the following features:
-    * Login (via Firebase Authentication)
-    * Signup (via Firebase Authentication)
-    * Browse local tech events (data are from Firebase Firestore Database and Firebase Storage)
-    * Register to an event
+* Login (via Firebase Authentication)
+* Signup (via Firebase Authentication)
+* Browse local tech events (data are from Firebase Firestore Database and Firebase Storage)
+* Register to an event
 
 ## Packages
 
 Playground uses the following packages:
-    * firebase
-    * react-router-dom
-    * react-elastic-carousel
-    * react-spring
-    * styled-components
+* firebase
+* react-router-dom
+* react-elastic-carousel
+* react-spring
+* styled-components
 
 ## Demo
 Here is a [link]() for the demo of the application.
