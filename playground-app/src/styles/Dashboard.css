@@ -1,0 +1,33 @@
+.landing-container {
+    padding: 10px 20px;
+}
+
+.content-container {
+    padding-top: 65px;
+    background: #fff;
+}
+
+.listing-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.category-container{
+    width: 100%;
+}
+
+.card-row-header {
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 25px;
+    text-transform: capitalize;
+}
+
+.card-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-bottom: 20px;
+}
